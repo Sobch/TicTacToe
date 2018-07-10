@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="resources/js/jquery-3.2.1.min.js"></script>
+		<link rel="Stylesheet" type="text/css" href="resources/css/style.css" />
+		<script src="resources/js/script.js"></script>
+		<title>Kółko krzyżyk</title>
+	</head>
+	<body>
+		<!-- Menu -->
+		<div id="mainMenu" style="display:block;">
+			<h1>Kółko krzyżyk</h1>
+			<h2><a href="#options">Rozpocznij grę</a></h2>
+		</div>
+		
+		<!-- Options -->
+		<div id="options" style="display:none;">
+			<form action="">
+				<p>
+					Rozmiar planszy:
+					<input type="radio" id="gridSize3" name="gridSize" value="3" checked="checked">3x3
+					<input type="radio" id="gridSize5" name="gridSize" value="5">5x5
+					<input type="radio" id="gridSize8" name="gridSize" value="8">8x8
+					<input type="radio" id="gridSize15" name="gridSize" value="15">15x15
+				</p>
+			</form>
+			<form action="">
+				<p>
+					<span style="position:absolute;">Wariant gry:</span>
+					<div style="padding-left:5.5em; position:relative;">
+						<input type="radio" id="toWin3" name="toWin" value="3" checked="checked">3 do zwycięstwa<br>
+						<input type="radio" id="toWin4" name="toWin" value="4">4 do zwycięstwa<br>
+						<input type="radio" id="toWin5" name="toWin" value="5">5 do zwycięstwa
+					</div>
+				</p>
+			</form>
+			<h2><a href="#game">Rozpocznij</a></h2>
+		</div>
+		
+		<!-- Game -->
+		<div id="game" style="display:none;">
+			<h1 id="turn">Kolej na X</h1>
+			<div class="grid">
+			  <div class="row">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 5r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 5r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 8r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 8r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 8r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 15r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 15r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 15r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 15r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 15r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 15r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			  <div class="row 15r-gameSize">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 5-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 8-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+				<div class="cell 15-gameSize"></div>
+			  </div>
+			</div>
+			<span></span>
+		</div>
+		
+		<!-- End options -->
+		<div id="shadow" style="display:none;"></div>
+		<div id="endOptions" style="display:none;">
+			<h1>Remis!</h1>
+			<h2><a href="#menu">Wróć do menu</a></h2>
+			<h2><a href="#game">Zagraj ponownie</a></h2>
+		</div>
+		
+	
+	</body>
+</html>

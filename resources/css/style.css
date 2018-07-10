@@ -1,0 +1,111 @@
+body {
+	background: #ddd;
+	color:#057;
+	font-family:'Myriad pro', Arial;
+	font-size:18px;
+}
+
+h1 {
+	font-size:3em;
+}
+
+a {
+	font-style:none;
+	text-decoration:none;
+	color:#057;
+	transition: color 0.5s;
+}
+
+p {margin:20px 0px;}
+
+a:hover { color: #068; }
+
+/* MENU */
+#mainMenu {
+	position: absolute;
+	top: 50%;
+	text-align:center;
+	width:100%;
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+
+/* Options */
+#options {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+input[type="radio"]{
+	margin-left:20px; 
+}
+
+
+/* Game */
+#game {
+	min-height:250px;
+	min-height:400px;
+	text-align:center;
+	width:100%;
+	height:100%;
+	z-index:100;
+}
+
+.grid {
+	display: table;
+	border-spacing: 3px;
+	background:#111;
+	margin:auto;
+	min-width:300px;
+	min-height:300px;
+  
+}
+
+.row {
+	display: table-row;
+}
+
+.cell {
+	background: #ddd;
+	display: table-cell;
+	transition: 0.2s background; 
+}
+.cell:not(.X):not(.O):hover{
+	background:#bbb;
+	cursor:pointer;
+}
+.cell.X {color:#9A007B; background:url("../../resources/img/x.png") #C2A3BC no-repeat; background-size: contain, cover;}
+.cell.O {color:#598700; background:url("../../resources/img/o.png") #C4D999 no-repeat; background-size: contain, cover;}
+.cell.X.winning {background-color:#000;}
+.cell.O.winning {background-color:#000;}
+
+/* Options */
+#shadow { 
+	background:rgba(120,120,120,0.92);
+	width:100%;
+	height:100%;
+	position:fixed;	
+	top:0;
+	left:0;
+	padding:0;
+	margin:0;
+	z-index:5;
+}
+#endOptions {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align:center;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	z-index:10;
+}
+
+
+
+
+
+
